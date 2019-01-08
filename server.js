@@ -30,10 +30,23 @@ app.post('/addUser', function(req,res) {
 
 app.get('/showbyID/:id', function (req, res) {
     fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
-       var users = JSON.parse(data);
-       console.log(`${users.id}`);
-       var user = users[req.params.id] 
+       var users = JSON.parse( data );
+       var user = users["user" + req.params.id] 
        console.log( user );
        res.end( JSON.stringify(user));
+    });
+ })
+
+//  app.post('/addMultiUser',function(req,res){
+//      var json = req.body;
+//      fs.readFile
+// })
+
+app.delete('/deleteUser/:id', function (req, res) {
+    fs.readFile( __dirname + "/" + "users.json", 'utf8', function (err, data) {
+       data = JSON.parse( data );
+       delete data["user" + req.params.id];  
+       console.log( data );
+       res.end( JSON.stringify(data));
     });
  })
