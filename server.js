@@ -2,6 +2,9 @@
 var express = require('express');
 var app = express();
 var fs = require("fs");
+var MongoClient = require('mongodb').MongoClient;
+var url = "mongodb://202.139.192.109:27017/DATA";
+
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 
