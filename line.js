@@ -52,17 +52,32 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		show(reply_token, msg)
 	}*/
 	else if(req.body.events[0].message.text == 'Admin_Mon'){
-		let msg = 'Information Overhere'
+		let re = 'Request Data'
         let reply_token = req.body.events[0].replyToken
-        requestdata()
-        reply(reply_token,msg)
+        requestdata(reply_token, re)
 	}
 })
 
-function requestdata(){
-    resquest.post('https://63d407c3.ngrok.io/webhook/showdb', (req,res) => {
-            console.log('come on')
-    })
+function requestdata(reply_token, re){
+    resquest.post({
+        url: 'https://63d407c3.ngrok.io/webhook/showdb',
+        headers: HEADERS,
+        re: re
+    }, (err, res, body) => {
+		//console.log(data)
+		console.log('req')
+	})
+}
+
+function data(method, ok){
+	request.post({
+		url: 'https://api.line.me/v2/bot/message/' + method,
+		headers: HEADERS,
+		ok: ok								// must tranform to json 
+	}, (err, res, body) => {
+		//console.log(data)
+		console.log('send')
+	})
 }
 
 function push(msg) {					// similar to notification (push message to users)
@@ -220,17 +235,6 @@ function sendbeacon(method, ok){
 	}, (err, res, body) => {
 		//console.log(data)
 		console.log('send')
-	})
-}
-
-function showinfo(met, body){
-	response.post({
-		url: 'http://63d407c3.ngrok.io/receiveBeacon/' + met,
-		headers: HEADERS,
-		body: body								// must tranform to json 
-	}, (err, res, body) => {
-		//console.log(data)
-		console.log('show')
 	})
 }
 
