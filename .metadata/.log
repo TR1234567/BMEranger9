@@ -1453,3 +1453,11 @@ java.lang.Exception
 	at org.eclipse.ui.actions.BuildAction$1.runInWorkspace(BuildAction.java:285)
 	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
 	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:55)
+
+!ENTRY TrueSTUDIO 4 0 2019-01-10 18:55:58.064
+!MESSAGE ST-LINK GDB server failed to start (exit code = 16)
+
+!ENTRY org.eclipse.cdt.dsf.gdb 4 5012 2019-01-10 18:55:58.112
+!MESSAGE Error in initializing ST-Link device.
+Reason: (16) Multiple ST-Links detected.
+Please specify the serial number in the debug configuration.
