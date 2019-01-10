@@ -25,58 +25,44 @@ app.get('/webhook', (req, res) => {
 	// push block
 	//let msg = 'Hello'				// ; can or cannnot added in afterward
 	//push(msg)
-	res.send(msg)						// for showing when perform
-		
+	res.send(msg)						// for showing when perform	
 })
-
 
 // Reply
 app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post method
 	console.log('webhook passed')
 	// reply block							// from users
-	// request(options, function (error, response, body) {
-  	// if (error) throw new Error(error);
-		
-	//   body = JSON.parse(body)
-
-	//   let temp = body.temperature[length-1]
-	//   let humidity = body.humidity[length-1]
-	//   let time = body.timestamp
-  
-	// });
-	// let reply_token = req.body.events[0].replyToken     // get event 0 (the first array) that we want to get reply_token
-	// let echo = req.body.events[0].message.text
 	if(req.body.events[0].type == 'beacon')
 	{
 		 let greet = 'Welcome'
 		 let msg = JSON.stringify(req.body)
 		 let reply_token = req.body.events[0].replyToken     // get event 0 (the first array) that we want to get reply_token
 		 //let echo = req.body.events[0].message.text
-		 if(count < 0)  count = 0
+		 if(count < 0)  { count = 0 }
 		 if(req.body.events[0].beacon.type == 'enter'){
-		 	let ok = 'enter'
+		 	let body = 'enter'
 			greeting(reply_token, greet)
-		 	sendbeacon('enter', ok)
+		 	sendbeacon('enter', body)
 			console.log('Pin')
 			count = count + 1
 			console.log('enter = ' + count)
 		}
 		else if(req.body.events[0].beacon.type == 'leave'){
-			let ok = 'leave'
-			sendbeacon('leave', ok)
+			let body = 'leave'
+			sendbeacon('leave', body)
 			console.log('Pout')
 			count = count - 1
 			console.log('leave = ' + count)
 		}
 		if(count > 2){
 			let msg = 'There are too many people, please wait a moment'
-			reply(reply_token, msg)
+			//reply(reply_token, msg)
 			casting(reply_token, msg)
 		}
     }
 	else if(req.body.events[0].message.text == 'Admin_Mon'){
 		let reply_token = req.body.events[0].replyToken
-		let msg = 'Hello, loading information..'
+		let msg = 'Loading information...'
 		let body = JSON.stringify({
 			replyToken: reply_token,
 		})
@@ -117,36 +103,6 @@ function casting(reply_token,msg) {
   curl('reply', body)
 }
 
-/*
-function push(noti) {					// similar to notification (push message to users)
-	let body = JSON.stringify({
-	// push body
-	to: 'Uf8e0ff3e535a04463f383f6fc27290ed',
-	messages: [{
-		type: 'text',
-		text: noti
-	}]
-  })
-  curl('push', body)
-}
-*/
-
-// function show(reply_token, msg){
-// 	console.log('Pass show')
-// 	let body = JSON.stringify({
-// 		messages: [{
-// 			type: 'text',
-// 			text: 'Temperature = ' + temp
-// 		},
-// 		{
-// 			type: 'text',
-// 			text: 'Humidity = ' + humid
-// 		}
-//         ]
-//   })
-//   curl('reply', body)
-// }
-
 function reply(reply_token, msg) {
 	let body = JSON.stringify({
 		// push body
@@ -175,11 +131,11 @@ function greeting(reply_token, greet) {
   curl('reply', body)
 }
 
-function sendbeacon(method, ok){
+function sendbeacon(method, body){
 	request.post({
 		url: 'http://13e202fb.ngrok.io/receiveData/beacon/' + method,
 		headers: HEADERS,
-		ok: ok								// must tranform to json 
+		body: body								// must tranform to json 
 	}, (err, res, body) => {
 		console.log('send')
 	})
