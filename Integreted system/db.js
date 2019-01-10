@@ -15,5 +15,7 @@ var SensorDataSchema = new Schema({
     Humidity: SchemaTypes.Double,
     PIN:Number,
     POUT:Number,
-    Timestamp:
-})
+    Timestamp:String
+});
+
+var SensorData = mongoose.model('Sensor',SensorDataSchema);
