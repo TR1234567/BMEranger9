@@ -23,14 +23,6 @@ app.get('/webhook', (req, res) => {
 })
 
 // Reply
-app.post('/webhook', (req,res) => {
-    if(req.body.events[0].message.text == 'Admin_Mon'){
-        let reply_token = req.body.events[0].replyToken
-        let msg = req.body.events[0].message.text
-        reply(reply_token, msg)
-    }
-})
-/*
 app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post method
 	// reply block							// from users
 	if(req.body.events[0].type == 'beacon')
@@ -38,7 +30,6 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		let mess = 'Welcome'
 		let reply_token = req.body.events[0].replyToken     // get event 0 (the first array) that we want to get reply_token
         let msg = JSON.stringify(req.body)
-        let re = req.body.events[0].message.text
 		push(mess)
 		if(req.body.events[0].beacon.type == 'enter'){
 			let ok = 'enter'
@@ -52,20 +43,19 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		}
 		
     }
-   
 	else if(req.body.events[0].message.text == 'Admin_Mon'){
-		let re = 'Request Data'
+		let re = "Receive Data"
         let reply_token = req.body.events[0].replyToken
         requestdata(reply_token, re)
 	}
 })
-*/
+
 
 function requestdata(reply_token, re){
-    resquest.post({
-        url: 'https://63d407c3.ngrok.io/webhook/showdb',
+    request.post({
+        url: 'https://63d407c3.ngrok.io/receiveBeacon/showdb',
         headers: HEADERS,
-        reply_token: reply_token
+        body: re
     }, (err, res, body) => {
 		console.log('req')
 	})
