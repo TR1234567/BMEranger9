@@ -18,7 +18,7 @@ app.get('/webhook', (req, res) => {
 	// push block
 	//let msg = 'Hello'				// ; can or cannnot added in afterward
 	//push(msg)
-	res.send(msg)						// for showing when perform
+	//res.send(msg)						// for showing when perform
 		
 })
 
@@ -29,9 +29,9 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 	{
 		let mess = 'Welcome'
 		let reply_token = req.body.events[0].replyToken     // get event 0 (the first array) that we want to get reply_token
-		let msg = JSON.stringify(req.body)
+        let msg = JSON.stringify(req.body)
+        let re = req.body.events[0].message.text
 		push(mess)
-		reply(reply_token, msg)
 		if(req.body.events[0].beacon.type == 'enter'){
 			let ok = 'enter'
 			sendbeacon('enter', ok)
@@ -53,11 +53,11 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 	else if(req.body.events[0].type.message.text == 'Admin_Mon'){
 		let msg = 'Information Overhere'
 		let reply_token = req.body.events[0].replyToken
-		reply(reply_token,msg)
+        reply(reply_token,msg)
 	}
 })
-
-/*app.post('https://63d407c3.ngrok.io/webhook/showdb', (req,res) => {
+/*
+resquest.post('https://63d407c3.ngrok.io/webhook/showdb', (req,res) => {
 		console.log('come on')
 })*/
 
@@ -74,6 +74,7 @@ function push(msg) {					// similar to notification (push message to users)
   curl('push', body)
 }
 
+/*
 function show(reply_token, msg){
 	console.log('Pass show')
 	let body = JSON.stringify({
@@ -191,6 +192,7 @@ function show(reply_token, msg){
   })
   showinfo('reply', body)
 }
+*/
 
 
 function reply(reply_token, msg) {
@@ -208,7 +210,7 @@ function reply(reply_token, msg) {
 
 function sendbeacon(method, ok){
 	request.post({
-		url: 'http://63d407c3.ngrok.io/receiveBeacon/' + method,
+		url: 'https://api.line.me/v2/bot/message/' + method,
 		headers: HEADERS,
 		ok: ok								// must tranform to json 
 	}, (err, res, body) => {
