@@ -34,7 +34,7 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 	// reply block							// from users
 	if(req.body.events[0].type == 'beacon')
 	{
-		 let greet = 'Welcome'
+		 let greet = 'Welcome, press Admin_Mon to see info'
 		 let msg = JSON.stringify(req.body)
 		 let reply_token = req.body.events[0].replyToken     // get event 0 (the first array) that we want to get reply_token
 		 //let echo = req.body.events[0].message.text
@@ -56,15 +56,20 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		}
 		if(count > 2){
 			let msg = 'There are too many people, please wait a moment'
-			//reply(reply_token, msg)
+			casting(reply_token, msg)
+		}
+		else if (count < 2 && count > 0){
+			let msg = 'Available Now...'
 			casting(reply_token, msg)
 		}
     }
 	else if(req.body.events[0].message.text == 'Admin_Mon'){
 		let reply_token = req.body.events[0].replyToken
+		let userid = req.body.events[0].userId
 		let msg = 'Loading information...'
 		let body = JSON.stringify({
 			replyToken: reply_token,
+			userId: userid
 		})
 		console.log('Wordin')
 		reply(reply_token, msg)
@@ -123,9 +128,57 @@ function greeting(reply_token, greet) {
 		// push body
 		replyToken: reply_token,
 		messages: [{
-			type: 'text',
-			text: greet
-		}]
+			type: 'flex',
+			altText: 'Flex Message',
+			contents: {
+			  type: 'bubble',
+			  body: {
+				type: 'box',
+				layout: 'vertical',
+				spacing: 'sm',
+				action: {
+				  type: 'uri',
+				  label: 'Action',
+				  uri: 'https://linecorp.com'
+				},
+				contents: [
+				  {
+					type: 'text',
+					text: 'Sanam Chandra Palace',
+					size: 'lg',
+					weight: 'bold'
+				  },
+				  {
+					type: 'box',
+					layout: 'vertical',
+					spacing: 'sm',
+					contents: [
+					  {
+						type: 'box',
+						layout: 'baseline',
+						contents: [
+						  {
+							type: 'text',
+							text: 'Information press >',
+							flex: 0,
+							margin: 'sm'
+						  },
+						  {
+							type: 'text',
+							text: 'Admin_Mon',
+							size: 'sm',
+							align: 'end',
+							weight: 'bold',
+							color: '#760F0F'
+						  }
+						]
+					  }
+					]
+				  }
+				]
+			  }
+			}
+		  }]
 
 	  })
   curl('reply', body)
