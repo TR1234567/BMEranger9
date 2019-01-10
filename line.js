@@ -23,6 +23,14 @@ app.get('/webhook', (req, res) => {
 })
 
 // Reply
+app.post('/webhook', (req,res) => {
+    if(req.body.events[0].message.text == 'Admin_Mon'){
+        let reply_token = req.body.events[0].replyToken
+        let msg = req.body.events[0].message.text
+        reply(reply_token, msg)
+    }
+})
+/*
 app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post method
 	// reply block							// from users
 	if(req.body.events[0].type == 'beacon')
@@ -44,31 +52,25 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		}
 		
     }
-    /*
-	else if(req.body.events[0].type == 'message'){
-		let msg = req.body.events[0].message.text
-		let reply_token = req.body.events[0].replyToken
-		//reply(reply_token,msg)
-		show(reply_token, msg)
-	}*/
+   
 	else if(req.body.events[0].message.text == 'Admin_Mon'){
 		let re = 'Request Data'
         let reply_token = req.body.events[0].replyToken
         requestdata(reply_token, re)
 	}
 })
+*/
 
 function requestdata(reply_token, re){
     resquest.post({
         url: 'https://63d407c3.ngrok.io/webhook/showdb',
         headers: HEADERS,
-        re: re
+        reply_token: reply_token
     }, (err, res, body) => {
-		//console.log(data)
 		console.log('req')
 	})
 }
-
+/*
 function data(method, ok){
 	request.post({
 		url: 'https://api.line.me/v2/bot/message/' + method,
@@ -92,7 +94,7 @@ function push(msg) {					// similar to notification (push message to users)
   })
   curl('push', body)
 }
-
+*/
 /*
 function show(reply_token, msg){
 	console.log('Pass show')
@@ -212,7 +214,6 @@ function show(reply_token, msg){
   showinfo('reply', body)
 }
 */
-
 
 function reply(reply_token, msg) {
 	let body = JSON.stringify({
