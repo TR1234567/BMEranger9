@@ -43,23 +43,27 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 			console.log('Pout')
 		}
 		
-	}
+    }
+    /*
 	else if(req.body.events[0].type == 'message'){
 		let msg = req.body.events[0].message.text
 		let reply_token = req.body.events[0].replyToken
 		//reply(reply_token,msg)
 		show(reply_token, msg)
-	}
+	}*/
 	else if(req.body.events[0].type.message.text == 'Admin_Mon'){
 		let msg = 'Information Overhere'
-		let reply_token = req.body.events[0].replyToken
+        let reply_token = req.body.events[0].replyToken
+        requestdata()
         reply(reply_token,msg)
 	}
 })
-/*
-resquest.post('https://63d407c3.ngrok.io/webhook/showdb', (req,res) => {
-		console.log('come on')
-})*/
+
+function requestdata(){
+    resquest.post('https://63d407c3.ngrok.io/webhook/showdb', (req,res) => {
+            console.log('come on')
+    })
+}
 
 function push(msg) {					// similar to notification (push message to users)
 	let body = JSON.stringify({
