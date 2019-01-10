@@ -1,0 +1,17 @@
+stm32l496g_discovery_idd.c:152:6:BSP_IDD_DeInit	0	static
+stm32l496g_discovery_idd.c:164:6:BSP_IDD_Reset	0	static
+stm32l496g_discovery_idd.c:176:6:BSP_IDD_LowPower	0	static
+stm32l496g_discovery_idd.c:188:6:BSP_IDD_StartMeasure	8	static
+stm32l496g_discovery_idd.c:206:6:BSP_IDD_Config	40	static
+stm32l496g_discovery_idd.c:90:9:BSP_IDD_Init	80	static
+stm32l496g_discovery_idd.c:219:6:BSP_IDD_GetValue	8	static
+stm32l496g_discovery_idd.c:235:6:BSP_IDD_EnableIT	0	static
+stm32l496g_discovery_idd.c:247:6:BSP_IDD_ClearIT	0	static
+stm32l496g_discovery_idd.c:259:9:BSP_IDD_GetITStatus	0	static
+stm32l496g_discovery_idd.c:275:6:BSP_IDD_DisableIT	0	static
+stm32l496g_discovery_idd.c:287:9:BSP_IDD_ErrorGetCode	8	static
+stm32l496g_discovery_idd.c:318:6:BSP_IDD_ErrorEnableIT	0	static
+stm32l496g_discovery_idd.c:330:6:BSP_IDD_ErrorClearIT	0	static
+stm32l496g_discovery_idd.c:342:9:BSP_IDD_ErrorGetITStatus	0	static
+stm32l496g_discovery_idd.c:358:6:BSP_IDD_ErrorDisableIT	0	static
+stm32l496g_discovery_idd.c:370:6:BSP_IDD_WakeUp	0	static

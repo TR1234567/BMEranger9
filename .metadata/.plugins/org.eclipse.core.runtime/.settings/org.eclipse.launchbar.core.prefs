@@ -1,0 +1,6 @@
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch=x86
+LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
+configDescList=org.eclipse.launchbar.core.descriptorType.default\:TGR_HW.elf,org.eclipse.launchbar.core.descriptorType.default\:B-L475E-IOT01.elf,org.eclipse.launchbar.core.descriptorType.default\:TGR13_28_HW.elf
+eclipse.preferences.version=1
+org.eclipse.launchbar.core.descriptorType.default\:TGR_HW.elf/activeLaunchMode=debug
+org.eclipse.launchbar.core.descriptorType.default\:TGR_HW.elf/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
