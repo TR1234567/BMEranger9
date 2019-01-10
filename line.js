@@ -44,18 +44,20 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		
     }
 	else if(req.body.events[0].message.text == 'Admin_Mon'){
-		let re = "Receive Data"
-        let reply_token = req.body.events[0].replyToken
-        requestdata(reply_token, re)
+		let reply_token = req.body.events[0].replyToken
+		let body = JSON.stringify({
+			replyToken: reply_token,
+		})
+        requestdata(body)
 	}
 })
 
 
-function requestdata(reply_token, re){
+function requestdata(body){
     request.post({
         url: 'https://63d407c3.ngrok.io/receiveBeacon/showdb',
         headers: HEADERS,
-        body: re
+        body: body
     }, (err, res, body) => {
 		console.log('req')
 	})
