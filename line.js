@@ -51,7 +51,7 @@ app.post('/webhook', (req, res) => {		// WEBHOOK send to bot is always post meth
 		//reply(reply_token,msg)
 		show(reply_token, msg)
 	}*/
-	else if(req.body.events[0].type.message.text == 'Admin_Mon'){
+	else if(req.body.events[0].message.text == 'Admin_Mon'){
 		let msg = 'Information Overhere'
         let reply_token = req.body.events[0].replyToken
         requestdata()
