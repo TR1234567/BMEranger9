@@ -1,0 +1,16 @@
+stm32l496g_discovery_qspi.c:907:16:QSPI_AutoPollingMemReady.isra.0	88	static
+stm32l496g_discovery_qspi.c:861:16:QSPI_WriteEnable.isra.2	88	static
+stm32l496g_discovery_qspi.c:141:9:BSP_QSPI_Init	96	static
+stm32l496g_discovery_qspi.c:200:9:BSP_QSPI_DeInit	48	static
+stm32l496g_discovery_qspi.c:223:9:BSP_QSPI_Read	64	static
+stm32l496g_discovery_qspi.c:265:9:BSP_QSPI_Write	80	static
+stm32l496g_discovery_qspi.c:340:9:BSP_QSPI_Erase_Block	64	static
+stm32l496g_discovery_qspi.c:388:9:BSP_QSPI_Erase_Sector	64	static
+stm32l496g_discovery_qspi.c:429:9:BSP_QSPI_Erase_Chip	64	static
+stm32l496g_discovery_qspi.c:469:9:BSP_QSPI_GetStatus	72	static
+stm32l496g_discovery_qspi.c:539:9:BSP_QSPI_GetInfo	0	static
+stm32l496g_discovery_qspi.c:555:9:BSP_QSPI_EnableMemoryMappedMode	72	static
+stm32l496g_discovery_qspi.c:589:9:BSP_QSPI_SuspendErase	64	static
+stm32l496g_discovery_qspi.c:630:9:BSP_QSPI_ResumeErase	64	static
+stm32l496g_discovery_qspi.c:675:9:BSP_QSPI_EnterDeepPowerDown	64	static
+stm32l496g_discovery_qspi.c:706:9:BSP_QSPI_LeaveDeepPowerDown	64	static

@@ -1,0 +1,17 @@
+stm32l4r9i_eval_idd.c:140:6:BSP_IDD_DeInit	0	static
+stm32l4r9i_eval_idd.c:152:6:BSP_IDD_Reset	0	static
+stm32l4r9i_eval_idd.c:164:6:BSP_IDD_LowPower	0	static
+stm32l4r9i_eval_idd.c:176:6:BSP_IDD_StartMeasure	8	static
+stm32l4r9i_eval_idd.c:194:6:BSP_IDD_Config	40	static
+stm32l4r9i_eval_idd.c:73:9:BSP_IDD_Init	80	static
+stm32l4r9i_eval_idd.c:207:6:BSP_IDD_GetValue	8	static
+stm32l4r9i_eval_idd.c:222:6:BSP_IDD_EnableIT	0	static
+stm32l4r9i_eval_idd.c:234:6:BSP_IDD_ClearIT	0	static
+stm32l4r9i_eval_idd.c:246:9:BSP_IDD_GetITStatus	0	static
+stm32l4r9i_eval_idd.c:262:6:BSP_IDD_DisableIT	0	static
+stm32l4r9i_eval_idd.c:274:9:BSP_IDD_ErrorGetCode	8	static
+stm32l4r9i_eval_idd.c:305:6:BSP_IDD_ErrorEnableIT	0	static
+stm32l4r9i_eval_idd.c:317:6:BSP_IDD_ErrorClearIT	0	static
+stm32l4r9i_eval_idd.c:329:9:BSP_IDD_ErrorGetITStatus	0	static
+stm32l4r9i_eval_idd.c:345:6:BSP_IDD_ErrorDisableIT	0	static
+stm32l4r9i_eval_idd.c:357:6:BSP_IDD_WakeUp	0	static

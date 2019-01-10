@@ -1,0 +1,7 @@
+stm32l476g_eval_io.c:144:9:BSP_IO_Init	16	static
+stm32l476g_eval_io.c:184:10:BSP_IO_ITGetStatus	16	static
+stm32l476g_eval_io.c:214:6:BSP_IO_ITClear	8	static
+stm32l476g_eval_io.c:249:9:BSP_IO_ConfigPin	16	static
+stm32l476g_eval_io.c:279:6:BSP_IO_WritePin	16	static
+stm32l476g_eval_io.c:306:10:BSP_IO_ReadPin	16	static
+stm32l476g_eval_io.c:336:6:BSP_IO_TogglePin	16	static
