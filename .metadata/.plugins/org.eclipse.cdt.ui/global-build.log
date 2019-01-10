@@ -77,3 +77,7 @@ Generate listing file done
 Generate build reports done
 arm-atollic-eabi-objcopy.exe -O ihex TGR13_28_HW.elf TGR13_28_HW.hex 
 Info: Parallel threads used: 4
+18:31:58 **** Incremental Build of configuration Debug for project TGR13_28_HW ****
+Info: Internal Builder is used for build
+arm-atollic-eabi-objcopy.exe -O ihex TGR13_28_HW.elf TGR13_28_HW.hex 
+Info: Parallel threads used: 0
