@@ -1,6 +1,7 @@
-10:33:46 **** Incremental Build of configuration Debug for project TGR_HW ****
+19:10:47 **** Incremental Build of configuration Debug for project TGR_HW ****
 Info: Internal Builder is used for build
+arm-atollic-eabi-objcopy.exe -O ihex TGR_HW.elf TGR_HW.hex 
 Info: Parallel threads used: 0
 
-10:33:46 Build Finished (took 109ms)
+19:10:48 Build Finished (took 220ms)
 
